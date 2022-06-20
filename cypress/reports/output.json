@@ -1,0 +1,223 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-20T07:59:53.805Z",
+    "end": "2022-06-20T08:02:30.691Z",
+    "duration": 148816,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9d9a1e2a-6c65-4b2a-a96b-740949cc5d20",
+      "title": "",
+      "fullFile": "cypress/integration/Automationpractice.js",
+      "file": "cypress/integration/Automationpractice.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8ab086cb-b020-4b5d-892e-31e6dcc89911",
+          "title": "Automation Practice Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify title & URL of the launch URL",
+              "fullTitle": "Automation Practice Test Verify title & URL of the launch URL",
+              "timedOut": null,
+              "duration": 28310,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('AutomationPracticeURL'));\ncy.title().should('eq', 'My Store');\ncy.url().should('eq', 'http://automationpractice.com/index.php');\nautomationpractice.getLogoText().should('have.attr', 'src', 'http://automationpractice.com/img/logo.jpg');",
+              "err": {},
+              "uuid": "7f3c554a-e88c-428f-b367-735019a32675",
+              "parentUUID": "8ab086cb-b020-4b5d-892e-31e6dcc89911",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Links in header",
+              "fullTitle": "Automation Practice Test Verify Links in header",
+              "timedOut": null,
+              "duration": 8140,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('AutomationPracticeURL'));\nautomationpractice.getCallUs().contains('0123-456-789');\nautomationpractice.getContact().should('be.visible');\nautomationpractice.getSigninButton().should('be.visible');",
+              "err": {},
+              "uuid": "ce78213d-8d81-43c1-b454-81b93319f562",
+              "parentUUID": "8ab086cb-b020-4b5d-892e-31e6dcc89911",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify placeholderText",
+              "fullTitle": "Automation Practice Test Verify placeholderText",
+              "timedOut": null,
+              "duration": 3961,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('AutomationPracticeURL'));\nautomationpractice.getSearchTextBox().invoke('attr', 'placeholder').should('contain', 'Search');",
+              "err": {},
+              "uuid": "377334db-370f-4c2a-9130-d18503ac97f2",
+              "parentUUID": "8ab086cb-b020-4b5d-892e-31e6dcc89911",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify on different tabs and verify title",
+              "fullTitle": "Automation Practice Test Verify on different tabs and verify title",
+              "timedOut": null,
+              "duration": 33678,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('AutomationPracticeURL'));\nautomationpractice.getTshirt().click();\ncy.title().should('eq', 'Faded Short Sleeve T-shirts - My Store');\ncy.go('back');\nautomationpractice.getDresses().click();\ncy.title().should('eq', 'Printed Summer Dress - My Store');",
+              "err": {},
+              "uuid": "bec9bae1-80cc-4ef2-85d2-3ab08878dbf0",
+              "parentUUID": "8ab086cb-b020-4b5d-892e-31e6dcc89911",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Login functionality",
+              "fullTitle": "Automation Practice Test Verify Login functionality",
+              "timedOut": null,
+              "duration": 33984,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('AutomationPracticeURL'));\ncy.wait(1000);\nautomationpractice.getSigninButton().click();\ncy.title().should('eq', 'Login - My Store');\nautomationpractice.fillEmail();\nautomationpractice.fillPassword();\nautomationpractice.getLoginButton().click();\nautomationpractice.getAccount().contains('Darshit Jain');",
+              "err": {},
+              "uuid": "31fb7b0f-4fae-4e7d-bced-f33b54948ccc",
+              "parentUUID": "8ab086cb-b020-4b5d-892e-31e6dcc89911",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Footer of the page",
+              "fullTitle": "Automation Practice Test Verify Footer of the page",
+              "timedOut": null,
+              "duration": 12094,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('AutomationPracticeURL'));\ncy.get('footer');\nautomationpractice.getCategories().contains('Categories');\nautomationpractice.getInformation().contains('Information');\nautomationpractice.getMyAccount().contains('My account');\nautomationpractice.getWomen().invoke('text').should('include', 'Women');\nautomationpractice.getSpecials().invoke('text').should('include', 'Specials');\nautomationpractice.getNewProducts().invoke('text').should('include', 'New products');\nautomationpractice.getBestSellers().invoke('text').should('include', 'Best sellers');\nautomationpractice.getOurStores().invoke('text').should('include', 'Our stores');\nautomationpractice.getContactus().invoke('text').should('include', 'Contact us');\nautomationpractice.getTerms().invoke('text').should('include', 'Terms and conditions of use');\nautomationpractice.getAboutUs().invoke('text').should('include', 'About us');\nautomationpractice.getSitemap().invoke('text').should('include', 'Sitemap');\nautomationpractice.getMyOrders().invoke('text').should('include', 'My orders');\nautomationpractice.getMyCreditSLips().invoke('text').should('include', 'My credit slips');\nautomationpractice.getMyAddresses().invoke('text').should('include', 'My addresses');\nautomationpractice.getMyPersonalInfo().invoke('text').should('include', 'My personal info');",
+              "err": {},
+              "uuid": "0f700ede-ddd9-460f-88f7-10af005a2084",
+              "parentUUID": "8ab086cb-b020-4b5d-892e-31e6dcc89911",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify Product details",
+              "fullTitle": "Automation Practice Test Verify Product details",
+              "timedOut": null,
+              "duration": 28649,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('AutomationPracticeURL'));\nautomationpractice.getProduct().click();\ncy.get('img', {\n  includeShadowDom: true\n}).filter('[src]').filter(':visible').should($imgs => $imgs.map((i,\n/** @type {HTMLImageElement} */\nimg) => expect(img.naturalWidth).to.be.greaterThan(0)));\nautomationpractice.getTShirtTitle().contains('Printed Dress');\nautomationpractice.getProductDescription().should('have.text', '100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom.'); //Value present anywhere in table\nautomationpractice.getDataSheet().contains('td', 'Cotton').should('be.visible');\nautomationpractice.getDataSheet().contains('td', 'Girly').should('be.visible');\nautomationpractice.getDataSheet().contains('td', 'Colorful Dress').should('be.visible'); //Value Present in specific raw & coulmn\nautomationpractice.getCompisitions().contains('Cotton').should('be.visible');\nautomationpractice.getStyles().contains('Girly').should('be.visible');\nautomationpractice.getProperties().contains('Colorful Dress').should('be.visible'); //Verify Composition is Cotton\ncy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(2)').each(($e, index, $elist) => {\n  const text = $e.text();\n  if (text.includes(\"Cotton\")) {\n    cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(1)').eq(index).then(function (cname) {\n      const compositionsname = cname.text();\n      expect(compositionsname).to.equal(\"Compositions\");\n    });\n  }\n}); //Verify Styles is Girly\ncy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(2)').each(($e, index, $elist) => {\n  const text = $e.text();\n  if (text.includes(\"Girly\")) {\n    cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(1)').eq(index).then(function (sname) {\n      const stylesname = sname.text();\n      expect(stylesname).to.equal(\"Styles\");\n    });\n  }\n}); //Verify Properties is Colorful Dress\ncy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(2)').each(($e, index, $elist) => {\n  const text = $e.text();\n  if (text.includes(\"Colorful Dress\")) {\n    cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(1)').eq(index).then(function (pname) {\n      const propertiesname = pname.text();\n      expect(propertiesname).to.equal(\"Properties\");\n    });\n  }\n});\ncy.get(':nth-child(3) > .rte > p').invoke('text').then(t => {\n  expect(t).include('Fashion has been creating well-designed collections since 2010.');\n});\nautomationpractice.getTwitterLink().should('be.visible');\nautomationpractice.getFacebookLink().should('be.visible');\nautomationpractice.getGooglePlusLink().should('be.visible');\nautomationpractice.getPintRestLink().should('be.visible');",
+              "err": {},
+              "uuid": "6e254b6d-3146-4309-871f-aabf3d007462",
+              "parentUUID": "8ab086cb-b020-4b5d-892e-31e6dcc89911",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7f3c554a-e88c-428f-b367-735019a32675",
+            "ce78213d-8d81-43c1-b454-81b93319f562",
+            "377334db-370f-4c2a-9130-d18503ac97f2",
+            "bec9bae1-80cc-4ef2-85d2-3ab08878dbf0",
+            "31fb7b0f-4fae-4e7d-bced-f33b54948ccc",
+            "0f700ede-ddd9-460f-88f7-10af005a2084",
+            "6e254b6d-3146-4309-871f-aabf3d007462"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 148816,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "reportFileName": "report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "My Test Suite",
+        "embeddedScreenshots": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

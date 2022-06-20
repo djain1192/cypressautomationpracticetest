@@ -37,7 +37,7 @@ describe('Automation Practice Test', () => {
         cy.go('back')
         automationpractice.getDresses().click()
         cy.title().should('eq', 'Printed Summer Dress - My Store')
-      
+
     }
     )
 
@@ -80,16 +80,62 @@ describe('Automation Practice Test', () => {
         cy.visit(Cypress.env('AutomationPracticeURL'))
         automationpractice.getProduct().click()
         cy.get('img', { includeShadowDom: true })
-        .filter('[src]')
-        .filter(':visible')
-        .should(($imgs) => $imgs.map((i, /** @type {HTMLImageElement} */ img) => expect(img.naturalWidth).to.be.greaterThan(0)));
-        automationpractice.getTShirtTitle().contains('Faded Short Sleeve T-shirts')
-        //cy.contains('Cotton')
-        //cy.get('#short_description_content > p').should('Faded short sleeve t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!');
-        //cy.get(':nth-child(3) > .page-product-heading').contains('Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which has since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!')
-        //cy.get('tbody > :nth-child(1) > :nth-child(1)').contains('Cotton')
-        //cy.get('.even > :nth-child(1)').contains('Casual')
-        //cy.get('tbody > :nth-child(3) > :nth-child(1)').contains('Short Sleeve')
+            .filter('[src]')
+            .filter(':visible')
+            .should(($imgs) => $imgs.map((i, /** @type {HTMLImageElement} */ img) => expect(img.naturalWidth).to.be.greaterThan(0)));
+        automationpractice.getTShirtTitle().contains('Printed Dress');
+        automationpractice.getProductDescription().should('have.text', '100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom.');
+
+        //Value present anywhere in table
+        automationpractice.getDataSheet().contains('td', 'Cotton').should('be.visible')
+        automationpractice.getDataSheet().contains('td', 'Girly').should('be.visible')
+        automationpractice.getDataSheet().contains('td', 'Colorful Dress').should('be.visible')
+
+        //Value Present in specific raw & coulmn
+        automationpractice.getCompisitions().contains('Cotton').should('be.visible')
+        automationpractice.getStyles().contains('Girly').should('be.visible')
+        automationpractice.getProperties().contains('Colorful Dress').should('be.visible')
+
+        //Verify Composition is Cotton
+        cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(2)').each(($e, index, $elist) => {
+            const text = $e.text()
+            if (text.includes("Cotton")) {
+                cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(1)').eq(index).then(function (cname) {
+                    const compositionsname = cname.text()
+                    expect(compositionsname).to.equal("Compositions")
+                })
+            }
+
+        })
+
+        //Verify Styles is Girly
+        cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(2)').each(($e, index, $elist) => {
+            const text = $e.text()
+            if (text.includes("Girly")) {
+                cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(1)').eq(index).then(function (sname) {
+                    const stylesname = sname.text()
+                    expect(stylesname).to.equal("Styles")
+                })
+            }
+
+        })
+
+        //Verify Properties is Colorful Dress
+        cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(2)').each(($e, index, $elist) => {
+            const text = $e.text()
+            if (text.includes("Colorful Dress")) {
+                cy.get('table[class=table-data-sheet]>tbody>tr td:nth-child(1)').eq(index).then(function (pname) {
+                    const propertiesname = pname.text()
+                    expect(propertiesname).to.equal("Properties")
+                })
+            }
+
+        })
+
+        cy.get(':nth-child(3) > .rte > p').invoke('text').then((t) => {
+            expect(t).include('Fashion has been creating well-designed collections since 2010.')
+        })
+
         automationpractice.getTwitterLink().should('be.visible')
         automationpractice.getFacebookLink().should('be.visible')
         automationpractice.getGooglePlusLink().should('be.visible')
